@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Générateur de contrat de prêt bancaire - Banque Nationale de France">
+    <meta name="keywords" content="prêt bancaire, contrat, banque, BNF, document légal">
+    <meta name="author" content="Banque Nationale de France">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Générateur de Contrat de Prêt - BNF">
+    <meta property="og:description" content="Créez et personnalisez votre contrat de prêt bancaire en ligne">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    
+    <title>Générateur de Contrat de Prêt - Banque Nationale de France</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+            <circle cx='50' cy='50' r='45' fill='%23000080'/>
+            <text x='50' y='45' text-anchor='middle' font-size='14' fill='white'>BNF</text>
+            <text x='50' y='65' text-anchor='middle' font-size='8' fill='white'>DEPUIS 1800</text>
+        </svg>
+    ">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ </head>
+    
+<body>
+
+<div id="loginOverlay" class="modal-overlay">
+    <div class="modal login-modal">
+        <h2>Accès Sécurisé</h2>
+        <input type="password" id="accessCode" placeholder="Code d'accès" />
+        <button onclick="checkAccess()">Accéder</button>
+    </div>
+</div>
+
+<div id="instructionsOverlay" class="modal-overlay hidden">
+    <div class="modal instructions-modal">
+        <h2>Instructions d'utilisation</h2>
+        <p>Bienvenue sur notre générateur de contrat de prêt :</p>
+        <ul>
+            <li>Cliquez sur n'importe quel texte pour le modifier</li>
+            <li>Remplissez les champs requis</li>
+            <li>Vos modifications sont automatiquement sauvegardées</li>
+            <li>Utilisez le bouton 'Télécharger le PDF' pour obtenir votre document</li>
+        </ul>
+        <button onclick="closeInstructions()">Compris</button>
+    </div>
+</div>
+
+<div class="document" contenteditable="true">
+    <div class="watermark">CONFIDENTIEL</div>
+    
+    <div class="document-meta">
+        <p>Document N° BNF-2024-0472-LP</p>
+        <p>Date d'émission: 12/02/2024</p>
+        <p>Page 1/1</p>
+    </div>
+
+    <div class="header">
+        <h1 contenteditable="true">ACCORD DE PRÊT BANCAIRE</h1>
+        <h2 contenteditable="true">BANQUE NATIONALE DE FRANCE</h2>
+        <p style="margin-top: 10px;" contenteditable="true">CONTRAT SOUMIS AUX DISPOSITIONS DU CODE MONÉTAIRE ET FINANCIER</p>
+        <p contenteditable="true">Référence: BNF-2024-0472-LP</p>
+    </div>
+
+    <svg class="additional-stamp" viewBox="0 0 120 120">
+        <g>
+            <circle cx="60" cy="60" r="55" fill="none" stroke="#000080" stroke-width="2"/>
+            <text x="60" y="40" text-anchor="middle" font-size="8" fill="#000080">MINISTÈRE</text>
+            <text x="60" y="55" text-anchor="middle" font-size="8" fill="#000080">DE L'ÉCONOMIE</text>
+            <text x="60" y="70" text-anchor="middle" font-size="8" fill="#000080">ET DES FINANCES</text>
+            <text x="60" y="85" text-anchor="middle" font-size="8" fill="#000080">FRANCE</text>
+        </g>
+    </svg>
+
+    <div class="logo-container">
+        <svg class="bank-logo" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="#000080"/>
+            <text x="50" y="45" text-anchor="middle" font-size="14" fill="white">BNF</text>
+            <text x="50" y="65" text-anchor="middle" font-size="8" fill="white">DEPUIS 1800</text>
+        </svg>
+    </div>
+
+    <svg class="stamp" viewBox="0 0 120 120">
+        <g class="official-seal">
+            <circle cx="60" cy="60" r="55" fill="none" stroke="#000" stroke-width="2"/>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="#000" stroke-width="1"/>
+            <text x="60" y="45" text-anchor="middle" font-size="8">RÉPUBLIQUE FRANÇAISE</text>
+            <text x="60" y="65" text-anchor="middle" font-size="8">BANQUE NATIONALE</text>
+            <text x="60" y="85" text-anchor="middle" font-size="8">DOCUMENT OFFICIEL</text>
+        </g>
+    </svg>
+
+    <p contenteditable="true">Entre les soussignés :</p>
+    <p contenteditable="true">La Banque Nationale de France, ci-après dénommée "le Prêteur",</p>
+    <p contenteditable="true">ET</p>
+    <p>M./Mme <input type="text" class="input-field name-input" placeholder="Nom et prénom" required></p>
+
+    <div class="article">
+        <h3 contenteditable="true">ARTICLE 1 - OBJET DU PRÊT</h3>
+        <p contenteditable="true">Le Prêteur consent à l'Emprunteur qui accepte, un prêt d'un montant de <input type="number" class="input-field amount-input" placeholder="Montant" required> euros.</p>
+        <p contenteditable="true">Ce prêt est destiné à financer : <input type="text" class="input-field name-input" placeholder="Objet du prêt" required></p>
+    </div>
+
+    <div class="article">
+        <h3 contenteditable="true">ARTICLE 2 - DURÉE</h3>
+        <p contenteditable="true">Le présent prêt est consenti pour une durée de <input type="number" class="input-field duration-input" placeholder="Durée" required> mois.</p>
+        <p contenteditable="true">La date de début du prêt est fixée au : <input type="text" class="input-field date-input" required></p>
+    </div>
+
+    <div class="article">
+        <h3 contenteditable="true">ARTICLE 3 - CONDITIONS FINANCIÈRES</h3>
+        <div class="sub-article">
+            <h4 contenteditable="true">3.1 Taux d'intérêt</h4>
+            <p contenteditable="true">Le taux d'intérêt annuel fixe est de <input type="number" step="0.01" class="input-field duration-input" placeholder="Taux" required>%.</p>
+            <p contenteditable="true">Taux Annuel Effectif Global (TAEG) : <input type="number" step="0.01" class="input-field duration-input" placeholder="TAEG" required>%</p>
+        </div>
+        
+        <div class="sub-article">
+            <h4 contenteditable="true">3.2 Modalités de remboursement</h4>
+            <p contenteditable="true">Le remboursement s'effectuera par mensualités constantes de <input type="number" class="input-field amount-input" placeholder="Mensualité" required> euros.</p>
+        </div>
+    </div>
+
+    <div class="article">
+        <h3 contenteditable="true">ARTICLE 4 - GARANTIES</h3>
+        <ul class="conditions-list">
+            <li contenteditable="true">Assurance emprunteur obligatoire</li>
+            <li contenteditable="true">Caution personnelle si applicable</li>
+            <li contenteditable="true">Nantissement ou hypothèque selon le type de prêt</li>
+        </ul>
+    </div>
+
+    <div class="article">
+        <h3 contenteditable="true">ARTICLE 5 - CONDITIONS DE REMBOURSEMENT ANTICIPÉ</h3>
+        <p contenteditable="true">L'Emprunteur pourra procéder à un remboursement anticipé :</p>
+        <ul class="conditions-list">
+            <li contenteditable="true">Total ou partiel</li>
+            <li contenteditable="true">Moyennant un préavis d'un mois</li>
+            <li contenteditable="true">Indemnité de remboursement anticipé : 3% du capital remboursé</li>
+        </ul>
+    </div>
+
+    <div class="article">
+        <h3 contenteditable="true">ARTICLE 6 - DÉFAUT DE PAIEMENT</h3>
+        <p contenteditable="true">En cas de retard de paiement, le taux d'intérêt sera majoré de 5 points de pourcentage, sans préjudice de la déchéance du terme.</p>
+    </div>
+
+    <div class="signatures-container">
+        <div class="signature-block">
+            <p contenteditable="true">Pour le Prêteur :</p>
+            <div class="signature-field"></div>
+            <p>Date : <input type="text" class="input-field date-input" required></p>
+        </div>
+        <div class="signature-block">
+            <p contenteditable="true">L'Emprunteur :</p>
+            <div class="signature-field"></div>
+            <p>Date : <input type="text" class="input-field date-input" required></p>
+        </div>
+    </div>
+
+    <svg class="small-stamp stamp-1" viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#800" stroke-width="1"/>
+        <text x="30" y="25" text-anchor="middle" font-size="6" fill="#800">VÉRIFIÉ</text>
+        <text x="30" y="35" text-anchor="middle" font-size="6" fill="#800">LE</text>
+        <text x="30" y="45" text-anchor="middle" font-size="6" fill="#800">12/02/2024</text>
+    </svg>
+
+    <svg class="small-stamp stamp-2" viewBox="0 0 60 60">
+        <rect x="5" y="5" width="50" height="50" fill="none" stroke="#000080" stroke-width="1"/>
+        <text x="30" y="30" text-anchor="middle" font-size="8" fill="#000080">COPIE</text>
+        <text x="30" y="40" text-anchor="middle" font-size="8" fill="#000080">CERTIFIÉE</text>
+    </svg>
+
+    <svg class="approval-stamp" viewBox="0 0 150 80">
+        <rect x="5" y="5" width="140" height="70" fill="none" stroke="#800" stroke-width="2"/>
+        <text x="75" y="35" text-anchor="middle" font-size="18" fill="#800">APPROUVÉ</text>
+        <text x="75" y="55" text-anchor="middle" font-size="12" fill="#800">N° 2024-0472</text>
+    </svg>
+</div>
+
+<button class="download-btn" onclick="downloadPDF()">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M10 12l-5-5 1.41-1.41L10 9.17l3.59-3.58L15 7m-5 5l-5-5 1.41-1.41L10 9.17l3.59-3.58L15 7"/>
+    </svg>
+    Télécharger le PDF
+</button>
+
+<!--  <div style="position: fixed; bottom: 20px; left: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; font-size: 14px;">
+    <p style="margin: 0;">Cliquez sur n'importe quel texte pour le modifier avant de télécharger</p>
+</div> -->
+
+<script src="script.js">
+
+</script>
+
+</body></html>
